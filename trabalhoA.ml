@@ -2,7 +2,7 @@ let has = Hashtbl.create 1
 
 let rec f1 n =
     let rec sum k b =
-        if b < k then (0,0) else (**Aqui irá ser feita a parte do sumatorio *)
+        if (b-2) < k then (0,0) else (**Aqui irá ser feita a parte do sumatorio *)
         let (trigo,trigo1) = f1 k in
         let (pao,pao1) = f1 (n-k-1) in
         let (up,up1) = sum (k+1) b in (**esta função serve para fazer a incrementação do proprio sumatorio *)
@@ -13,7 +13,7 @@ let rec f1 n =
      |1 -> (2,1)
      |_ -> 
         let (res1, quant1) = f1 (n-1) in
-        let (res2, quant2) = sum 1 (n-2) in
+        let (res2, quant2) = sum 1 n in
         ((3*res1)+res2, quant1+quant2+1)
     ;;
 
